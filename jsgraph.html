@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Graph with JS</title>
+  <style>
+    .bar {
+      width: 50px;
+      background-color: steelblue;
+      color: white;
+      text-align: center;
+      margin-right: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Yearly Rank</h3>
+  <div id="chart" style="display: flex; align-items: flex-end;"></div>
+
+  <script type="text/javascript">
+    const data = [
+      { year: 2017, rank: 2 },
+      { year: 2018, rank: 3 },
+      { year: 2019, rank: 12 }
+    ];
+
+    const chart = document.getElementById("chart");
+
+    data.forEach(item => {
+      const bar = document.createElement("div");
+      bar.className = "bar";
+      bar.style.height = `${item.rank * 10}px`;  // scale height for visibility
+      bar.innerHTML = `${item.year}<br>${item.rank}`;
+      chart.appendChild(bar);
+    });
+  </script>
+
+</body>
+</html>
